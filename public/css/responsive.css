@@ -1,0 +1,541 @@
+/*// Extra small devices (portrait phones, less than 576px)*/
+@media (max-width: 575px) {
+    h2
+    {
+        font-size: 14px;
+    }
+    h3
+    {
+        font-size: 12px;
+    }
+    .top_social_link
+    {
+        text-align: center;
+    }
+    .top_option_link
+    {
+        text-align: center;
+
+    }
+    .top_option_link li
+    {
+        display: inline-block;
+    }
+    .top_option_link li:last-child
+    {
+        display: block !important;
+
+        padding: 5px 0;
+    }
+    .logo_section_header img
+    {
+        width:50%;
+        /*display: inline-block;*/
+    }
+    .navbar
+    {
+        display: list-item;
+        list-style: none;
+        text-align: right;
+    }
+    .navbar .navbar-nav
+    {
+        text-align:right;
+    }
+    .carousel-caption
+    {
+        top:5%;
+    }
+
+    .img_captions img
+    {
+        width:80%;
+        height:80%;
+    }
+    .carousel-control-prev{
+        display: none;
+    }
+    .carousel-control-next
+    {
+        display: none;
+    }
+    .carousel-indicators-numbers
+    {
+        display: none;
+    }
+    .carousel_wrap
+    {
+        height:225px;
+    }
+    .carousel-inner
+    {
+        height: 220px;
+    }
+    .carousel-inner img
+    {
+        height: 220px;
+    }
+
+    .cow_bg_content {
+         display: none;
+    }
+    .index_about_wrap .panel {
+        position: initial;
+        margin: 5px 0;
+        background: white;
+        border-radius: 3px;
+        text-align: justify !important;
+        padding: 10px 10px;
+        /* padding: 13vmin 5vmin 20vmin 10vmin; */
+        box-shadow: 0 25px 42px rgba(0,0,0,0.2);
+    }
+    .Content_title
+    {
+        padding: 10px 0;
+    }
+    .cards_wrap
+    {
+        margin-bottom: 15px;
+    }
+    .index_gallery_wrap .card
+    {
+        margin: 0 0 10px 0;
+    }
+    #myCarousel .testimonial
+    {
+        padding: 8px 0 0;
+        font-size: 11px;
+    }
+    #myCarousel .item .img-box
+    {
+        width:75px;
+        height:75px;
+    }
+    footer
+    {
+        text-align: center;
+    }
+    .logo_box
+    {
+        text-align: center;
+    }
+    .logo_box img
+    {
+        width: 35%;
+    }
+    .social_box
+    {
+        text-align: center !important;
+        margin: -20px 0 0 0;
+    }
+    .footer_title
+    {
+        text-align: center !important;
+        margin: 10px 0;
+    }
+    .quick_links >ul>li {
+        padding: 2px 0;
+    }
+    .contacts_links > ul> li {
+        padding: 2px 0;
+    }
+    .contacts_links > ul> li:last-child
+    {
+        padding-bottom: 10px;
+    }
+    .main_footer_text
+    {
+        padding-top: 10px;
+        font-size: 12px;
+    }
+    .gallery_images
+    {
+        height:250px;
+    }
+    .gallery_images img
+    {
+        height:100%;
+        width:100%;
+    }
+    /*About Page*/
+     .image_sections
+    {
+        padding: 15px 0;
+        
+    }
+    .content_sections
+    {
+        text-align: justify !important;
+    }
+    .banner_sections h4
+    {
+        text-align:center !important;
+    }
+    .nav-pills
+    {
+        padding: 10px 0;
+    }
+    .gallery_image
+    {
+        padding: 0 0 10px 0;
+    }
+    .bhagwansthan_logo_text
+    {
+        margin:-15px 0 0 5px;
+        font-size: 13px;
+    }
+    .tit-mainmenu{
+        font-size: 16px;
+        padding: 10px 0 0 0;
+    }
+    .name-item-mainmenu
+    {
+        font-size: 13px;
+    }
+    .btn_add_to_cart span
+    {
+        font-size: 14px;
+    }
+    .collection-block-order {
+        margin-bottom: 15px;
+    }
+
+
+}
+
+/*// Small devices (landscape phones, 576px and up)*/
+@media (min-width: 576px) and (max-width: 767px) {
+    h2
+    {
+        font-size: 18px;
+    }
+    h3
+    {
+        font-size: 14px;
+    }
+    .name-item-mainmenu {
+        font-size: 13px;
+    }
+    .txt23
+    {
+        font-size: 13px;
+    }
+
+    .btn_add_to_cart span
+    {
+        font-size: 13px;
+    }
+    .carousel-indicators-numbers
+    {
+        display: none;
+    }
+    .cards_wrap
+    {
+        margin-bottom: 15px;
+    }
+    footer
+    {
+        text-align: center;
+    }
+    .logo_box
+    {
+        text-align: center;
+    }
+    .social_box{
+        text-align: center !important;
+        margin: -18px 0 0 0 ;
+    }
+    .footer_title
+    {
+        text-align: center !important;
+    }
+    .quick_links >ul>li {
+        padding: 4px 0;
+    }
+    .contacts_links > ul> li {
+        padding: 4px 0;
+    }
+    .contacts_links > ul> li:last-child
+    {
+        padding-bottom: 8px;
+    }
+    .main_footer_text
+    {
+        padding-top: 8px;
+    }
+    .order_categories_block li a
+    {
+        font-size: 15px;
+    }
+    .order_categories_block li ul
+    {
+        padding: 0 0;
+    }
+    .your_orders_header
+    {
+        font-size: 14px;
+    }
+
+}
+
+/*// Medium devices (tablets, 768px and up)*/
+@media (min-width: 768px) and (max-width: 991px) {
+    .cards_wrap
+    {
+        margin-bottom: 10px;
+    }
+
+    .logo_box
+    {
+        text-align: left;
+    }
+    .quick_links >ul>li {
+        padding: 6px 0;
+    }
+    .contacts_links > ul> li {
+        padding: 6px 0;
+    }
+    .Login_shopping_wrap
+    {
+        text-align: right;
+    }
+    /*.contacts_links > ul> li:last-child*/
+    /*{*/
+        /*padding-bottom: 5px;*/
+    /*}*/
+}
+
+
+/*// Large devices (desktops, 992px and up)*/
+@media (min-width: 992px) and (max-width: 1199px) {
+    .cow_bg_content {
+         display: block;
+    }
+    .cards_wrap
+    {
+        margin-bottom: 0px;
+    }
+
+    .logo_box
+    {
+        text-align: left;
+        margin-top: -30px;
+    }
+    .quick_links >ul>li {
+        padding: 8px 0;
+    }
+    .contacts_links > ul> li {
+        padding: 8px 0;
+    }
+    .navbar_img_content
+    {
+        margin-left: -30px;
+    }
+    .Login_shopping_wrap
+    {
+        text-align: right;
+    }
+    .navbar
+    {
+        padding: 0;
+    }
+    .index_about_wrap .panel {
+        top: 1vmin;
+    }
+
+}
+
+/*// Extra large devices (large desktops, 1200px and up)*/
+@media (min-width: 1200px) {
+    .top_option_link
+    {
+        text-align: right;
+
+    }
+
+    .logo_box
+    {
+        text-align: left;
+        margin-top: -35px;
+    }
+
+    .logo_section_header
+    {
+        height:105px;
+
+    }
+    .logo_section_header img
+    {
+        height: 100%;
+        margin-top: -10px;
+        margin-left: -25px;
+    }
+    .bhagwansthan_logo_text
+    {
+    margin-top: -20px;
+        margin-left: 15px;
+    }
+
+    .carousel_wrap
+    {
+        height:500px;
+    }
+    .carousel-caption
+    {
+    top: 5%;
+    left: 10%;
+    /*left:50%;*/
+
+    }
+    .img_captions
+    {
+    top:5%;
+    }
+
+    .cow_bg_content {
+         display: block;
+    }
+    .index_about_wrap .panel
+    {
+        position: absolute;
+        top: 6vmin;
+        left: -18vmin;
+        background: white;
+        border-radius: 3px;
+        text-align: left;
+        padding: 25px 25px;
+        /*padding: 13vmin 5vmin 20vmin 10vmin;*/
+        box-shadow: 0 25px 42px rgba(0,0,0,0.2);
+
+    }
+    .cards_wrap
+    {
+        margin-bottom: 0;
+    }
+    #myCarousel .testimonial
+    {
+        font-size: 18px;
+    }
+    .navbar_img_content
+    {
+        margin-left: -30px;
+    }
+    .Login_shopping_wrap
+    {
+        text-align: right;
+    }
+    .navbar
+    {
+        padding: 0;
+    }
+
+
+}
+
+/*@media only screen and (min-width : 1200px) {*/
+    /*.carousel_wrap{*/
+        /*height: 500px;*/
+    /*}*/
+    /*.carousel-inner*/
+    /*{*/
+        /*height: 500px;*/
+    /*}*/
+    /*.carousel-caption*/
+    /*{*/
+        /*top: 5%;*/
+        /*left: 10%;*/
+        /*/!*left:50%;*!/*/
+
+    /*}*/
+    /*.img_captions*/
+    /*{*/
+        /*top:5%;*/
+    /*}*/
+    /*.carousel_caption_wrap*/
+    /*{*/
+        /*/!*top:30%;*!/*/
+        /*margin-top: 10%;*/
+        /*/!*position: relative;*!/*/
+        /*/!*z-index: 1;*!/*/
+        /*/!*padding: 60px 50px;*!/*/
+        /*color: white;*/
+        /*font-weight: 800;*/
+        /*/!*border-right: 3px solid #61C2F7;*!/*/
+        /*/!*background-color: rgba(24, 24, 24, 0.54);*!/*/
+        /*height:250px;*/
+        /*-webkit-animation: fadein 6s; /!* Safari, Chrome and Opera > 12.1 *!/*/
+        /*-moz-animation: fadein 6s; /!* Firefox < 16 *!/*/
+        /*/!*-ms-animation: fadein 8s; /!* Internet Explorer *!/!*!/*/
+        /*-o-animation: fadein 6s; /!* Opera < 12.1 *!/*/
+        /*animation: fadein 6s;*/
+        /*/!*transition-duration: 2.0s;*!/*/
+    /*}*/
+    /*@keyframes fadein {*/
+        /*from { opacity: 0; }*/
+        /*to   { opacity: 1; }*/
+    /*}*/
+
+    /*/!* Firefox < 16 *!/*/
+    /*@-moz-keyframes fadein {*/
+        /*from { opacity: 0; }*/
+        /*to   { opacity: 1; }*/
+    /*}*/
+
+    /*/!* Safari, Chrome and Opera > 12.1 *!/*/
+    /*@-webkit-keyframes fadein {*/
+        /*from { opacity: 0; }*/
+        /*to   { opacity: 1; }*/
+    /*}*/
+
+    /*/!* Internet Explorer *!/*/
+    /*@-ms-keyframes fadein {*/
+        /*from { opacity: 0; }*/
+        /*to   { opacity: 1; }*/
+    /*}*/
+    /*/!* Opera < 12.1 *!/*/
+    /*@-o-keyframes fadein {*/
+        /*from { opacity: 0; }*/
+        /*to   { opacity: 1; }*/
+    /*}*/
+
+    /*.carousel_caption_wrap h5*/
+    /*{*/
+        /*color: white;*/
+    /*}*/
+    /*/!*Top Header*!/*/
+    /*.Login_shopping_wrap*/
+    /*{*/
+        /*text-align: right;*/
+    /*}*/
+    /*.logo_section_header*/
+    /*{*/
+        /*height:95px;*/
+    /*}*/
+    /*.logo_section_header img*/
+    /*{*/
+        /*height: 100%;*/
+        /*margin-left: -25px;*/
+    /*}*/
+    /*.logo_navbar_wrap*/
+    /*{*/
+        /*margin-top: 0;*/
+        /*/!*margin-bottom: 45px;*!/*/
+    /*}*/
+    /*.logo_box*/
+    /*{*/
+        /*margin-top: -20px;*/
+    /*}*/
+    /*.location_wrap*/
+    /*{*/
+        /*text-align: left;*/
+
+    /*}*/
+    /*.phone_wrap*/
+    /*{*/
+        /*text-align: left;*/
+    /*}*/
+    /*.email_wrap*/
+    /*{*/
+        /*text-align: left;*/
+    /*}*/
+/*}*/

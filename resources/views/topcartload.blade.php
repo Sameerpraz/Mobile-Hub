@@ -1,0 +1,1 @@
+<i class="fa fa-shopping-cart" style="color: white;"></i> <a href="#" class=""> {{Cart::count()}} Item(s) Rs.{{number_format(Cart::subtotal(),2)}}</a>
