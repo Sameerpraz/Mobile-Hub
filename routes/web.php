@@ -107,7 +107,7 @@ Route::get('thankyoucontact', 'PageController@thankyoucontact')->name('thankyouc
 
 //Product
 Route::get('category/{category}','OrderController@category');
-Route::get('item/{item}','OrderController@item');
+Route::get('item/{item}','OrderController@item')->name('item.display');
 Route::post('addtocart','OrderController@addtocart')->name('addtocart');
 Route::post('removecart','OrderController@removecart')->name('removecart');
 Route::post('cartupdate','OrderController@cartupdate')->name('cartupdate');
