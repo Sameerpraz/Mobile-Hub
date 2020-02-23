@@ -66,7 +66,15 @@
                                     @foreach ($category->items as $item)
                                         <div class=" order-menu-item item-mainmenu mb-4">
                                             <div class="flex-w flex-b mb-2">
-                                                <a href="#" class="name-item-mainmenu txt21-item">
+                                                @if($item->image)
+                                                    <div class="row" id="lightgallery">
+                                                            <a  class="col-md-4 col-sm-12 col-12 mb-4 hov-img-zoom" href="{{url('public/uploads/items/'.$item->image)}}" title="{{ $item->image }}">
+                                                                <img src="{{url('public/uploads/items/'.$item->image)}}" alt="{{$item->image}}" width="100%" class="img-fluid">
+                                                            </a>
+                                                    </div>
+                                                @endif
+
+                                                <a href="{{route('item.display',$item->slug)}}" class="name-item-mainmenu txt21-item">
                                                     {{$item->title}}
                                                 </a>
 
@@ -107,9 +115,14 @@
                                                 @foreach($cc->items as $items)
                                                     <div class=" order-menu-item item-mainmenu mb-4">
                                                         <div class="flex-w flex-b mb-2">
-                                                            <img src="{{url('public/uploads/items/'.$items->image)}}" width="30" alt="">
+                                                            @if($item->image)
+                                                                <figure>
+                                                                    <img src="{{url('public/uploads/items/'.$items->image)}}" alt="" height="120" width="120">
+                                                                </figure>
+                                                            @endif
+                                                            {{--<img src="{{url('public/uploads/items/'.$items->image)}}" width="30" alt="">--}}
 
-                                                            <a href="#" class="name-item-mainmenu txt21-item">
+                                                            <a href="{{route('item.display',$items->slug)}}" class="name-item-mainmenu txt21-item">
                                                                 {{$items->title}}
                                                             </a>
 
@@ -121,8 +134,8 @@
                                                                     <div class="input-group">
                                                                         <input type="hidden" value="1" class="input-sm form-control" name="quantity">
                                                                         <input type="hidden" value="{{$items->id}}" class="input-sm form-control" name="item_id">
-                                                                        <button  class="btn animation btn_add_to_cart txt22" type="submit" style="background: transparent; padding:0; margin: 0;">
-                                                                            <span class="price-new ">Rs.{{number_format($items->price,2)}} <i class="fa fa-plus-circle"></i></span>
+                                                                        <button  class="btn animation btn-success btn_add_to_cart txt22" type="submit" style=" padding:5px; margin: 0;">
+                                                                            <span class="price-new ">Rs.{{number_format($items->price,2)}} </span>
                                                                         </button>
                                                                     </div>
                                                                     <!-- /input-group -->
@@ -295,4 +308,15 @@
 
         });
         </script>
+    <link rel="stylesheet" href="{{ asset('vendors/lightgallery/lightgallery.min.css') }}">
+    <script src="{{ asset('vendors/lightgallery/lightgallery.min.js') }}"></script>
+    <script src="{{ asset('vendors/lightgallery/lg-zoom.js') }}"></script>
+    <script>
+        $(document).ready(function() {
+            lightGallery(document.getElementById('lightgallery'),{
+                download:true,
+                // zoom: true,
+            });
+        });
+    </script>
     @stop
