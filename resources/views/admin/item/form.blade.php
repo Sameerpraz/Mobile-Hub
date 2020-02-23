@@ -45,3 +45,11 @@
 		{{-- Image size: 900X400px --}}
 	</div>
 </div>
+
+
+<div class="form-group">
+	<label class="col-sm-2 control-label" for="best_seller">Best Seller</label>
+	<div class="col-sm-10">
+		<input type="checkbox" name="best_seller" class="best_seller" id="best_seller" value="1" {{old('best_seller',isset($item)? $item->best_seller:null)== 1 ? 'checked="checked"' : null}}> 
+	</div>
+</div>

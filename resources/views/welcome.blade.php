@@ -53,6 +53,54 @@
 
 
     <main>
+
+<!-- New Arrival -->
+<section class="index_section_wrap mt-md-5">
+        <div class="container">
+            <div class="row">
+                <h2>New Arrival</h2>
+                <a href="{{route('view.newarrival')}}" class="btn btn-primary">view all</a>
+                @foreach($newarrivals as $newarrival)
+                <div class="col-md-4">
+            <div class="card" style="width: 18rem;">
+            @if($newarrival->image)
+            <img class="card-img-top" src="{{url('public/uploads/items/'.$newarrival->image)}}" alt="{{$newarrival->title}}">
+            @endif               
+                <div class="card-body">
+                    <h5 class="card-title">{{$newarrival->title}}</h5>
+                    <p class="card-text">Rs. {{round($newarrival->price,2)}}</p>
+                    <a href="{{route('item.display',$newarrival->slug)}}" class="btn btn-primary">Detail</a>
+                </div>
+                </div>
+                </div>
+                @endforeach
+            </div>
+        </div>
+    </section>
+    <!-- Best SEller -->
+    <section class="index_section_wrap mt-md-5">
+        <div class="container">
+            <div class="row">
+            <h2>Best Seller</h2>
+            <a href="{{route('view.bestseller')}}" class="btn btn-primary">view all</a>
+                @foreach($bestsellers as $bestseller)
+                <div class="col-md-4">
+            <div class="card" style="width: 18rem;">
+            @if($bestseller->image)
+            <img class="card-img-top" src="{{url('public/uploads/items/'.$bestseller->image)}}" alt="{{$bestseller->title}}">
+            @endif               
+                <div class="card-body">
+                    <h5 class="card-title">{{$bestseller->title}}</h5>
+                    <p class="card-text">Rs. {{round($bestseller->price,2)}}</p>
+                    <a href="{{route('item.display',$bestseller->slug)}}" class="btn btn-primary">Detail</a>
+                </div>
+                </div>
+                </div>
+                @endforeach
+            </div>
+        </div>
+    </section>
+
         {{--Videos--}}
         <section class="index_video_wrap mt-md-5">
             <div class="container">

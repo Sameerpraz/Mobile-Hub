@@ -124,6 +124,9 @@ Route::post('orderdetails','OrderController@orderstore');
 Route::get('checkout','CheckoutController@index')->name('checkout');
 Route::post('checkout','CheckoutController@checkout');
 Route::get('checkout/complete','CheckoutController@complete')->name('complete');
+Route::get('bestsellers','HomeController@bestseller')->name('view.bestseller'); 
+Route::get('newarrivals','HomeController@newarrival')->name('view.newarrival');
+
 
 Route::group(['middleware' => ['auth']], function(){
     Route::get('profile', 'UserController@profile')->name('profile');

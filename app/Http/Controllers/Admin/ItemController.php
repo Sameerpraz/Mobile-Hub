@@ -53,7 +53,13 @@ class ItemController extends Controller
             ]);
 
         $slug = $request->slug? $request->slug : $request->title;
-        $slug = $slug == '/'? $slug : str_slug($slug);       
+        $slug = $slug == '/'? $slug : str_slug($slug);    
+        
+        
+        $best_seller=0;
+        if($request->best_seller){
+            $best_seller=1;
+        }
         
         $item = new Item;
         $item->title = $request->title;
@@ -61,6 +67,7 @@ class ItemController extends Controller
         $item->category_id = $request->category_id;
         $item->details = $request->details;
         $item->price = $request->price;
+        $item->best_seller=$best_seller;
 
         $item->order_by=(Item::where('category_id', $request->category_id)->max('order_by') + 1);
         $item->save();
@@ -115,7 +122,12 @@ class ItemController extends Controller
             ]);
 
         $slug = $request->slug? $request->slug : $request->title;
-        $slug = $slug == '/'? $slug : str_slug($slug);       
+        $slug = $slug == '/'? $slug : str_slug($slug);     
+        
+        $best_seller=0;
+        if($request->best_seller){
+            $best_seller=1;
+        }
         
         // $item = new Item;
         $item->title = $request->title;
@@ -123,6 +135,7 @@ class ItemController extends Controller
         $item->category_id = $request->category_id;
         $item->details = $request->details;
         $item->price = $request->price;
+        $item->best_seller=$best_seller;
 
         $item->save();
 

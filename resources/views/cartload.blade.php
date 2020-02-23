@@ -4,7 +4,7 @@
         <thead class="thead-light">
         <tr>
             <th scope="col">S.N</th>
-            <th scope="col">Image</th>
+            <!-- <th scope="col">Image</th> -->
             <th scope="col">Items</th>
             <th scope="col">Quantity</th>
             <th scope="col">Price</th>
@@ -14,9 +14,12 @@
         </thead>
     <?php $i = 1; ?>
     @foreach (Cart::content() as $key=>$cart_item)
+    
     <tr>
         <td>{{$i++}}</td>
-{{--        <td>{{$image->image}}</td>--}}
+
+        
+        </td>
         <td>{{$cart_item->name}}</td>
         <td>
             <form action="{{ route('cartupdate') }}" class="cart_update_form">

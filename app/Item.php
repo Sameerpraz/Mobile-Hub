@@ -8,6 +8,7 @@ class Item extends Model
 {
     protected $attributes = [
         'status' => 1,
+        'best_seller'=>0,
         'price' => 0,
 
     ];

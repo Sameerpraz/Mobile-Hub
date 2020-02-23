@@ -148,7 +148,7 @@ class OrderController extends Controller
         } else {
             $order_type = request('order_type');
         }
-        $data['order_type'] = $request->order_type;
+        $data['order_type'] = 'collection';
         $data['collection_date'] = $request->collection_date;
         $data['collection_time'] = $request->collection_time;
         $request->session()->put('orderdetails', $data);
