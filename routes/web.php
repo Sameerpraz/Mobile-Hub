@@ -54,6 +54,8 @@ Route::group(['prefix' => 'admin', 'middleware' => ['admin'], 'namespace' => 'Ad
     Route::resource('items', 'ItemController');
     Route::post('items/order', 'ItemController@order')->name('items.order');
     Route::resource('orders', 'OrderController');
+    Route::post('order/{id}/approve', 'OrderController@approve')->name('order.application.approve');
+    Route::post('order/{id}/decline', 'OrderController@decline')->name('order.application.decline');
 });
 
 

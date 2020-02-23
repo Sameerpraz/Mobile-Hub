@@ -12,6 +12,8 @@ use App\Order;
 use App\Setting;
 use Cart;
 use App\Page;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\PaymentDone;
 class OrderController extends Controller
 {
     public function index(Request $request)

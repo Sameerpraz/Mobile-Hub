@@ -15,7 +15,7 @@ Order Details [#{{$order->id}}]
 	<div class="panel-body">		
 		<p>
 			<b>Order Type:</b> {{$order->type}} <br>
-			<b>Payment Type:</b> {{$order->payment}}({!!$order->paid? '<span class="text-success">Paid</span>' : '<span class="text-danger">Unpaid</span>'!!}) <br>
+			<b>Payment Type:</b> {{$order->payment}}({!!$order->paid == 1 ? '<span class="text-success">Paid</span>' : '<span class="text-danger">Unpaid</span>'!!}) <br>
 			<b>Delivery Date & Time:</b> {{$order->date_time}} <br>
 			<b>Name:</b> {{$order->name}}<br>
 			<b>Address:</b> {{$order->address}}<br>

@@ -38,7 +38,29 @@ Orders
 					<td>{{ $order->address }}</td>
 					<td>{{ $order->name }}</td>
 					<td>{{ $order->phone }}</td>
-					<td>{{ $order->order_status }}</td>
+					<td>
+						@if($order->paid == 0)
+							<div class="pull-left" style="margin-right: 20px;">
+								<form class="form-group" action="{{ route('order.application.approve',encrypt($order->id)) }}" method="post">
+									{{csrf_field()}}
+									<button type="submit" class="btn btn-success"><i class="lnr lnr-checkmark-circle"></i></button>
+								</form>
+							</div>
+
+							<div class="pull-left" style="margin-right: 20px;">
+								<form class="form-group" action="{{ route('order.application.decline',$order->id) }}" method="post">
+									{{csrf_field()}}
+									<button type="submit" class="btn btn-warning"><i class="lnr lnr-cross-circle"></i></button>
+								</form>
+							</div>
+						@elseif($order->paid == 1)
+							<p class="text-success"><i class="lnr lnr-checkmark-circle"></i> Paid </p>
+						@else
+							<p class="text-danger"><i class="lnr lnr-cross-circle"></i> Pending </p>
+						@endif
+
+					</td>
+					{{--<td>{{ $order->order_status }}</td>--}}
 					<td class="text-right">
 						<a class="btn btn-primary btn-sm" href="{{ route('orders.show', $order->id) }}"><i class="fa fa-eye"></i></a>
 						<div class="pull-right" style="margin-left: 10px;">
@@ -87,7 +109,28 @@ Orders
 					<td>{{ $order->address }}</td>
 					<td>{{ $order->name }}</td>
 					<td>{{ $order->phone }}</td>
-					<td>{{ $order->order_status }}</td>
+					<td>
+						@if($order->paid == 0)
+							<div class="pull-left" style="margin-right: 20px;">
+								<form class="form-group" action="{{ route('order.application.approve',encrypt($order->id)) }}" method="post">
+									{{csrf_field()}}
+									<button type="submit" class="btn btn-success"><i class="lnr lnr-checkmark-circle"></i></button>
+								</form>
+							</div>
+
+							<div class="pull-left" style="margin-right: 20px;">
+								<form class="form-group" action="{{ route('order.application.decline',encrypt($order->id)) }}" method="post">
+									{{csrf_field()}}
+									<button type="submit" class="btn btn-warning"><i class="lnr lnr-cross-circle"></i></button>
+								</form>
+							</div>
+						@elseif($order->paid == 1)
+							<p class="text-success"><i class="lnr lnr-checkmark-circle"></i> Paid </p>
+						@else
+							<p class="text-danger"><i class="lnr lnr-cross-circle"></i> Pending </p>
+						@endif
+
+					</td>
 					<td class="text-right">
 
 							<a class="btn btn-primary btn-sm" href="{{ route('orders.show', $order->id) }}"><i class="fa fa-eye"></i></a>

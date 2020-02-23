@@ -6,6 +6,6 @@
     <button type="submit" class="btn btn-warning btn7 float-md-right">Place Order</button>
 @else
     <div class="alert alert-danger float-md-right">
-        <p><b>Warning:</b> We do not have option for order less than &pound; {{$min_order}}</p>
+        <p><b>Warning:</b> We do not have option for order less than Rs. {{$min_order}}</p>
     </div>
 @endif
