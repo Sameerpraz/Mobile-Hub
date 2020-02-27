@@ -57,6 +57,8 @@ Route::group(['prefix' => 'admin', 'middleware' => ['admin'], 'namespace' => 'Ad
     Route::post('order/{id}/approve', 'OrderController@approve')->name('order.application.approve');
     Route::post('order/{id}/decline', 'OrderController@decline')->name('order.application.decline');
     Route::any('order/monthlyreport', 'OrderController@monthlyreport')->name('monthlyreport.generate');
+    Route::any('order/weeklyreport', 'OrderController@weeklyreport')->name('weeklyreport.generate');
+    Route::any('order/dailyreport', 'OrderController@dailyreport')->name('dailyreport.generate');
 });
 
 

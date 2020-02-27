@@ -99,15 +99,27 @@ class OrderController extends Controller
     public function monthlyreport(Request $request)
     {
         $date = \Carbon\Carbon::today()->subDays(30);
-        $orderss=Order::where('created_at','>=',$date)->get();
+        $orderss=Order::where('created_at','>=',$date)->where('paid',1)->get();
         $orders = Orderitem::where('created_at', '>=', $date)->get();
 //        dd($orders);
         $total_items_count=0;
         $total_revenue_count=0.00;
-       foreach($orders as $od)
+       foreach($orderss as $od)
        {
-           $total_items_count=$total_items_count+($od->qty);
-           $total_revenue_count=$total_revenue_count+($od->total);
+           if($od->payment_method == 'cash_on_collection' && $od->paid == 1)
+           {
+//               $total_items_count=$od->items()->count();
+//               $total_revenue_count=$total_revenue_count+($od->items()->total);
+               foreach($od->items as $key=>$item)
+               {
+                        $total_items_count=$total_items_count+($item->qty);
+                       $total_revenue_count=$total_revenue_count+($item->total);
+
+
+               }
+           }
+//           $total_items_count=$total_items_count+($od->qty);
+//           $total_revenue_count=$total_revenue_count+($od->total);
 
        }
 
@@ -121,6 +133,86 @@ class OrderController extends Controller
         $dompdf->set_option('isHtml5ParserEnabled', true);
         $dompdf->render();
         $dompdf->stream("Monthly report from" .$date . ".pdf", array("Attachment" => false));
+
+    }
+
+    public function weeklyreport(Request $request)
+    {
+        $date = \Carbon\Carbon::today()->subDays(7);
+        $orderss=Order::where('created_at','>=',$date)->where('paid',1)->get();
+        $orders = Orderitem::where('created_at', '>=', $date)->get();
+//        dd($orders);
+        $total_items_count=0;
+        $total_revenue_count=0.00;
+        foreach($orderss as $od)
+        {
+            if($od->payment_method == 'cash_on_collection' && $od->paid == 1)
+            {
+//               $total_items_count=$od->items()->count();
+//               $total_revenue_count=$total_revenue_count+($od->items()->total);
+                foreach($od->items as $key=>$item)
+                {
+                    $total_items_count=$total_items_count+($item->qty);
+                    $total_revenue_count=$total_revenue_count+($item->total);
+
+
+                }
+            }
+//           $total_items_count=$total_items_count+($od->qty);
+//           $total_revenue_count=$total_revenue_count+($od->total);
+
+        }
+
+        $view = view('admin.weeklyreport.pdfview', compact('orderss','orders','total_revenue_count','total_items_count'));
+        // return $view;
+
+        $dompdf = new Dompdf();
+        $dompdf->loadHtml("$view");
+        $dompdf->setPaper('A4', 'landscape');
+        $dompdf->set_option('defaultFont', 'Courier');
+        $dompdf->set_option('isHtml5ParserEnabled', true);
+        $dompdf->render();
+        $dompdf->stream("Weekly report from" .$date . ".pdf", array("Attachment" => false));
+
+    }
+
+    public function dailyreport(Request $request)
+    {
+        $date = \Carbon\Carbon::today();
+        $orderss=Order::where('created_at','>=',$date)->where('paid',1)->get();
+        $orders = Orderitem::where('created_at', '>=', $date)->get();
+//        dd($orders);
+        $total_items_count=0;
+        $total_revenue_count=0.00;
+        foreach($orderss as $od)
+        {
+            if($od->payment_method == 'cash_on_collection' && $od->paid == 1)
+            {
+//               $total_items_count=$od->items()->count();
+//               $total_revenue_count=$total_revenue_count+($od->items()->total);
+                foreach($od->items as $key=>$item)
+                {
+                    $total_items_count=$total_items_count+($item->qty);
+                    $total_revenue_count=$total_revenue_count+($item->total);
+
+
+                }
+            }
+//           $total_items_count=$total_items_count+($od->qty);
+//           $total_revenue_count=$total_revenue_count+($od->total);
+
+        }
+
+        $view = view('admin.dailyreport.pdfview', compact('orderss','orders','total_revenue_count','total_items_count'));
+        // return $view;
+
+        $dompdf = new Dompdf();
+        $dompdf->loadHtml("$view");
+        $dompdf->setPaper('A4', 'landscape');
+        $dompdf->set_option('defaultFont', 'Courier');
+        $dompdf->set_option('isHtml5ParserEnabled', true);
+        $dompdf->render();
+        $dompdf->stream("Daily report from" .$date . ".pdf", array("Attachment" => false));
 
     }
 }

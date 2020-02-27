@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Monthly report</title>
+    <title>Daily report</title>
 
     <style>
 /*/!*body*!/*/
@@ -61,7 +61,7 @@ table, th, td {
 <body>
 
 <div class="body_block" style="background-color: white; padding-top: 20px;">
-    <h1 style="text-align: center;"><b>Monthly Report</b> </h1>
+    <h1 style="text-align: center;"><b>Daily Report</b> </h1>
 
     <div class="container">
         <div class="row">
@@ -70,19 +70,10 @@ table, th, td {
 
             </div>
             <div class="col-md-6" style="">
-                <div class="list-group row" style="float:right;">
-                    <div class="col-md-3 col-sm-4 col-xs-6">
-                        <label for="name"><b>From:</b> {{\Carbon\Carbon::today()->subDays(30)->format('d M, Y')}} </label>
-                    </div>
-                    <div class="col-md-9 col-sm-8 col-xs-6">
 
-                    </div>
-                </div>
-                <br>
-                <br>
                 <div class="list-group row" style="float: right;">
                     <div class="col-md-3 col-sm-4 col-xs-6">
-                        <label for="name"><b>To:</b> {{\Carbon\Carbon::today()->format('d M, Y')}}</label>
+                        <label for="name"><b>Date:</b> {{\Carbon\Carbon::today()->format('d M, Y')}}</label>
                     </div>
                     <div class="col-md-9 col-sm-8 col-xs-6">
 

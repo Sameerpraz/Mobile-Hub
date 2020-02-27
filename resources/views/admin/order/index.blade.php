@@ -6,7 +6,7 @@ Orders
 
 @section('content')
 
-<h3 class="page-title">Orders <a href="{{route('monthlyreport.generate')}}" class="btn btn-primary pull-right">Monthly Report</a></h3>
+<h3 class="page-title">Orders <a href="{{route('monthlyreport.generate')}}" class="btn btn-primary pull-right" style="margin-left: 5px;">Monthly Report</a><a href="{{route('weeklyreport.generate')}}" class="btn btn-primary pull-right" style="margin-left: 5px;">Weekly Report</a> <a href="{{route('dailyreport.generate')}}" class="btn btn-primary pull-right">Daily Report</a> </h3>
 {{--<div class="container">--}}
 	{{--<div class="row">--}}
 		{{--<div class="col-sm-8">--}}
