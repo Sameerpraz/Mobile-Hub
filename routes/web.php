@@ -24,7 +24,7 @@ Route::get('password/change', 'Admin\DashboardController@passwordchange')->name(
 Route::post('password/change', 'Admin\DashboardController@passwordstore');
 
 Route::group(['prefix' => 'admin', 'middleware' => ['admin'], 'namespace' => 'Admin'], function() {
-    Route::get('/', 'DashboardController@index')->name('admin.dashboard');
+    Route::any('/', 'DashboardController@index')->name('admin.dashboard');
     Route::get('/phpinfo', 'DashboardController@phpinfo');
     Route::resource('pages', 'PageController');
     Route::get('pages/photodelete/{page}', 'PageController@photodelete')->name('pages.photodelete');
@@ -56,6 +56,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['admin'], 'namespace' => 'Ad
     Route::resource('orders', 'OrderController');
     Route::post('order/{id}/approve', 'OrderController@approve')->name('order.application.approve');
     Route::post('order/{id}/decline', 'OrderController@decline')->name('order.application.decline');
+    Route::any('order/monthlyreport', 'OrderController@monthlyreport')->name('monthlyreport.generate');
 });
 
 

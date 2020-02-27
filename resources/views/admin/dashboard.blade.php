@@ -6,6 +6,7 @@ Dashboard
 @section('content')
 <h3 class="page-title">Dashboard</h3>
 <div class="row">
+
     <div class="col-sm-12">
         <div class="panel panel-headline">
             <div class="panel-heading">

@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Order;
+use App\Orderitem;
+use Dompdf\Dompdf;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Mail;
@@ -15,10 +17,16 @@ class OrderController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
+        $order = Order::query();
+        if($request->keyword){
+            $like = '%' . $request->keyword . '%';
+            $order->orWhere('first_name', 'like', $like);
+//            $order->orWhere('slug', 'like', $like);
+        }
         $today_orders = Order::today()->paginate(10, ['*'], 'today_orders');
-        $orders = Order::paginate(20);
+        $orders = $order->paginate(20);
         return view('admin.order.index', compact('today_orders', 'orders'));
     }
 
@@ -86,5 +94,33 @@ class OrderController extends Controller
             Mail::send(new PaymentDone($orders, $id));
             return redirect()->route('orders.index')->with('success','Order was paid.');
         }
+    }
+
+    public function monthlyreport(Request $request)
+    {
+        $date = \Carbon\Carbon::today()->subDays(30);
+        $orderss=Order::where('created_at','>=',$date)->get();
+        $orders = Orderitem::where('created_at', '>=', $date)->get();
+//        dd($orders);
+        $total_items_count=0;
+        $total_revenue_count=0.00;
+       foreach($orders as $od)
+       {
+           $total_items_count=$total_items_count+($od->qty);
+           $total_revenue_count=$total_revenue_count+($od->total);
+
+       }
+
+        $view = view('admin.monthlyreport.pdfview', compact('orderss','orders','total_revenue_count','total_items_count'));
+        // return $view;
+
+        $dompdf = new Dompdf();
+        $dompdf->loadHtml("$view");
+        $dompdf->setPaper('A4', 'landscape');
+        $dompdf->set_option('defaultFont', 'Courier');
+        $dompdf->set_option('isHtml5ParserEnabled', true);
+        $dompdf->render();
+        $dompdf->stream("Monthly report from" .$date . ".pdf", array("Attachment" => false));
+
     }
 }
