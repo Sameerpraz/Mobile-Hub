@@ -96,7 +96,7 @@ table, th, td {
                 <th>Quantity</th>
                 <th>Price</th>
                 <th>Total</th>
-                <th>Date</th>
+                {{--<th>Date</th>--}}
             </tr>
             </thead>
             <tbody>
@@ -116,7 +116,7 @@ table, th, td {
             <td>{{$item->qty}}</td>
             <td>Rs. {{$item->price}}</td>
             <td rowspan="{{$row}}">Rs. {{$order->total}}</td>
-            <td rowspan="{{$row}}">{{$order->date}}</td>
+            {{--<td rowspan="{{$row}}">{{$order->date}}</td>--}}
             </tr>
             @else
             <tr>
@@ -132,7 +132,7 @@ table, th, td {
             <tr>
                 <td  colspan="4" class="text-bold text-center" style="text-align: center; font-weight: bold;">Total:</td>
                 <td class="text-bold" style="font-weight: bolder">Rs. {{round($total_revenue_count,2)}}</td>
-                <td class="text-bold"></td>
+                {{--<td class="text-bold"></td>--}}
 
             </tr>
             <!--  -->
