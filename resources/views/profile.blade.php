@@ -148,7 +148,7 @@
                     <p>Records not found</p>
                 @endif
             <hr>
-            <h3>Order History </h3>
+            <h3>Purchased Order History </h3>
 
             @if ($orderhistory->count() > 0)
             <div class="table-responsive">

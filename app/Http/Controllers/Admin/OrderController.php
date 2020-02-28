@@ -81,11 +81,22 @@ class OrderController extends Controller
         $orders = Order::find(decrypt($id));
 //        dd($orders->email);
         $id=$orders->id;
+        if($orders->order_type == 'collection')
+        {
+            $status=1;
+        }
+        else
+        {
+           $status=0;
+        }
+
 //        $value=$orders->remaining;
 
 //        $issue->remaining=$value-1;
         $data = array(
             'paid' => 1,
+            'status'=>$status,
+
 
         );
 
