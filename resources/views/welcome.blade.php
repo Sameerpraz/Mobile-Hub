@@ -49,13 +49,39 @@
         </div>
     </div>
 </header>
-
-
-
     <main>
 
 <!-- New Arrival -->
-<section class="index_section_wrap mt-md-5">
+<div class="container-fluid bg-light">
+    <div class="container bg-white">
+    <h2>New Arrival</h2>        
+        <div class="row">
+            <div class="col-md-4">                
+            </div>
+            <div class="col-md-8 text-right">
+                <a href="{{route('view.newarrival')}}" class="btn btn-primary">view all</a>
+            </div>
+        </div>
+        <hr class="bg-dark">
+        <div class="row">
+            @foreach($newarrivals as $newarrival)
+            <div class="col-md-3">
+                 <div class="card mb-md-5">
+            @if($newarrival->image)
+            <img class="card-img-top" style="height: 200px;" src="{{url('public/uploads/items/'.$newarrival->image)}}" alt="{{$newarrival->title}}">
+            @endif               
+                <div class="card-body">
+                    <h5 class="card-title">{{$newarrival->title}}</h5>
+                    <p class="card-text">Rs. {{round($newarrival->price,2)}}</p>
+                    <a href="{{route('item.display',$newarrival->slug)}}" class="btn btn-primary">Detail</a>
+                </div>
+                </div>
+            </div>
+            @endforeach
+        </div>
+    </div>
+</div>
+<!-- <section class="index_section_wrap mt-md-5">
         <div class="container">
             <div class="row">
                 <h2>New Arrival</h2>
@@ -76,9 +102,37 @@
                 @endforeach
             </div>
         </div>
-    </section>
+    </section> -->
     <!-- Best SEller -->
-    <section class="index_section_wrap mt-md-5">
+    <div class="container-fluid bg-light">
+        <div class="container bg-white">
+            <h2>Best Seller</h2>
+            <div class="row">
+                <div class="col-md-4"></div>
+                <div class="col-md-12 text-right">
+                    <a href="{{route('view.bestseller')}}" class="btn btn-primary">view all</a>
+                </div>
+                <hr class="bg-dark">
+            </div>
+            <div class="row">
+                   @foreach($bestsellers as $bestseller)
+                <div class="col-md-3">
+            <div class="card mb-5">
+            @if($bestseller->image)
+            <img class="card-img-top" style="height: 200px;" src="{{url('public/uploads/items/'.$bestseller->image)}}" alt="{{$bestseller->title}}">
+            @endif               
+                <div class="card-body">
+                    <h5 class="card-title">{{$bestseller->title}}</h5>
+                    <p class="card-text">Rs. {{round($bestseller->price,2)}}</p>
+                    <a href="{{route('item.display',$bestseller->slug)}}" class="btn btn-primary">Detail</a>
+                </div>
+                </div>
+                </div>
+                @endforeach
+            </div>
+        </div>
+    </div>
+<!--     <section class="index_section_wrap mt-md-5">
         <div class="container">
             <div class="row">
             <h2>Best Seller</h2>
@@ -99,14 +153,14 @@
                 @endforeach
             </div>
         </div>
-    </section>
+    </section> -->
 
         {{--Videos--}}
-        <section class="index_video_wrap mt-md-5">
+        <section class="index_video_wrap bg-light">
             <div class="container">
                 <div class="row">
                     <div class="col-md-12 col-sm-12 col-12">
-                        <h4 class="text-center Content_title">
+                        <h4 class="text-center Content_title mt-4">
                             Videos
                         </h4>
 
