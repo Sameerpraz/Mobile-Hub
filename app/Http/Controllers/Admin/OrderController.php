@@ -85,11 +85,11 @@ class OrderController extends Controller
         {
             $status=1;
         }
-        else
-        {
-           $status=0;
-        }
+       else
+       {
+           $status=$orders->status;
 
+       }
 //        $value=$orders->remaining;
 
 //        $issue->remaining=$value-1;
