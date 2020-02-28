@@ -55,6 +55,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['admin'], 'namespace' => 'Ad
     Route::post('items/order', 'ItemController@order')->name('items.order');
     Route::resource('orders', 'OrderController');
     Route::post('order/{id}/approve', 'OrderController@approve')->name('order.application.approve');
+
     Route::post('order/{id}/decline', 'OrderController@decline')->name('order.application.decline');
     Route::any('order/monthlyreport', 'OrderController@monthlyreport')->name('monthlyreport.generate');
     Route::any('order/weeklyreport', 'OrderController@weeklyreport')->name('weeklyreport.generate');
@@ -135,5 +136,7 @@ Route::get('newarrivals','HomeController@newarrival')->name('view.newarrival');
 
 Route::group(['middleware' => ['auth']], function(){
     Route::get('profile', 'UserController@profile')->name('profile');
+    Route::post('order/{id}/paid', 'UserController@paid')->name('order.user.paid');
+    Route::get('orders/{order}','UserController@userordershow')->name('userorder.show');
     Route::post('changepassword', 'UserController@changepassword')->name('changepassword');
 });

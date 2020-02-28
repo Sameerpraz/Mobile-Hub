@@ -21,7 +21,9 @@
         </section>
         <section class="about_page_wrap container-fluid pt-0 mt-md-5 mb-md-5" >
         <div class="container">
-
+            @if (\Session::has('success'))
+                <div class="alert alert-success">{{\Session::get('success')}}</div>
+            @endif
             @if (!$user->isAdmin)
 
             <div class="row">
@@ -42,7 +44,7 @@
                             <div class="alert alert-danger">{{\Session::get('password_match')}}</div>
                         @endif
 
-                        @if (\Session::has('success'))
+                        @if (\Session::has('passwordsuccess'))
                             <div class="alert alert-success">{{\Session::get('success')}}</div>
                         @endif
 
@@ -88,6 +90,63 @@
                 </div>
             </div>
 
+            <hr>
+            <h3>Delivery Order Status</h3>
+                @if ($order_status->count() > 0)
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                            <tr>
+                                <th>#OrderID</th>
+                                <th>Date</th>
+                                <th>Status</th>
+                                <th></th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            @foreach ($order_status as $or)
+
+                                @if ($or->order_type == 'home_delivery' && $or->payment_method == 'cash_on_collection')
+                                    @php
+                                    $row = $or->items()->count();
+                                    @endphp
+
+
+                                            <tr>
+                                                <td rowspan="{{$row}}">#{{$or->id}}</td>
+                                                <td rowspan="{{$row}}">{{$or->date}}</td>
+                                                <td rowspan="{{$row}}">
+                                                    @if($or->status == 0)
+                                                        <div class="pull-left" style="margin-right: 20px;">
+                                                            <form class="form-group" action="{{ route('order.user.paid',encrypt($or->id)) }}" method="post">
+                                                                {{csrf_field()}}
+                                                                <button type="submit" class="btn btn-success"><i class="lnr lnr-checkmark-circle"></i>Paid</button>
+                                                            </form>
+                                                        </div>
+
+
+                                                    @elseif($or->status == 1)
+                                                        <p class="text-success"><i class="lnr lnr-checkmark-circle"></i> Paid </p>
+                                                    @else
+                                                        <p class="text-danger"><i class="lnr lnr-cross-circle"></i> Pending </p>
+                                                    @endif
+                                                </td>
+                                                <td>
+                                                    <a class="btn btn-primary btn-sm" href="{{ route('userorder.show', $or->id) }}"><i class="fa fa-eye"></i></a>
+                                                </td>
+                                            </tr>
+
+
+
+
+                                @endif
+                            @endforeach
+                            </tbody>
+                        </table>
+                    </div>
+                @else
+                    <p>Records not found</p>
+                @endif
             <hr>
             <h3>Order History </h3>
 
