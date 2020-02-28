@@ -30,7 +30,10 @@ class Order extends Model
     {
         return $query->where('status', 0);
     }
-
+    public function scopeActive($query)
+    {
+        return $query->where('status', 1);
+    }
     public function scopeNotPending($query)
     {
         return $query->where('status', '<>', 0);

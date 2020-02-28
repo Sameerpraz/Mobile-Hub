@@ -47,21 +47,37 @@
                 <form action="{{ url('orderdetails') }}" method="POST">
                     {!! csrf_field() !!}
                     <div class="row">
-                        <div class="col-sm-12 d-none">
-                            <div class="collection-block-order border-radius-4 mb-sm-2 d-none">
+                        <div class="col-sm-6">
+                            <div class="collection-block-order border-radius-4 mb-sm-2">
                                 <div class="well delivery-details">
                                     <h4 class="text-spl-color text-bold">Collection Detail</h4>
-                                    <div class="order-button">
+                                    <div class="order-button" data-toggle="buttons">
                                         <label class="order_type btn button-primary button-border active">
                                             <input type="radio" name="order_type" value="collection" checked="checked">Collection from store
                                         </label>
-
+                                        <label id="order_type" class="order_type btn button-primary button-border">
+                                            <input type="radio"name="order_type" value="home_delivery">Home Delivery
+                                        </label>
                                     </div>
                                 </div>
 
                             </div>
                         </div>
-                        <div class="col-sm-8 m-auto">
+                        {{--<div class="col-sm-12 d-none">--}}
+                            {{--<div class="collection-block-order border-radius-4 mb-sm-2 d-none">--}}
+                                {{--<div class="well delivery-details">--}}
+                                    {{--<h4 class="text-spl-color text-bold">Collection Detail</h4>--}}
+                                    {{--<div class="order-button">--}}
+                                        {{--<label class="order_type btn button-primary button-border active">--}}
+                                            {{--<input type="radio" name="order_type" value="collection" checked="checked">Collection from store--}}
+                                        {{--</label>--}}
+
+                                    {{--</div>--}}
+                                {{--</div>--}}
+
+                            {{--</div>--}}
+                        {{--</div>--}}
+                        <div class="col-sm-6">
                             <div class="side-block-order border-radius-4">
                                 <div class="well delivery-date-time">
                                     <h4 class="text-spl-color text-bold">Collection Date & Time</h4>

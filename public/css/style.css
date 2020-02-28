@@ -850,6 +850,11 @@ padding: 10px 0;
 {
     display: none;
 }
+.button-border.button-primary {
+    background: transparent;
+    color: inherit;
+    border-color: #2c64af;
+}
 /* carousel  */
 header .item {
     height: 100vh;

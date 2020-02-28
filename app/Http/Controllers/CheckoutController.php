@@ -71,6 +71,7 @@ class CheckoutController extends Controller
         }
 
         $orderdetails = $request->session()->get('orderdetails');
+//        dd($orderdetails);
         $date = date('Y-m-d', strtotime($orderdetails['collection_date']));
         $time = date('H:i:s', strtotime($orderdetails['collection_time']));
         $date_time = $date .' '. $time;
@@ -87,6 +88,11 @@ class CheckoutController extends Controller
         $order->address = $request->address;
         $order->phone = $request->phone;
         $order->email = $request->email ? $request->email : $user->email;
+//        if($order_type == 'collection')
+//        {
+//            $order->status=1;
+//        }
+
         $order->save();
 
         foreach (Cart::content() as $cart_item){

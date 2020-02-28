@@ -6,7 +6,17 @@ Orders
 
 @section('content')
 
-<h3 class="page-title">Orders</h3>
+<h3 class="page-title">Orders <a href="{{route('monthlyreport.generate')}}" class="btn btn-primary pull-right" style="margin-left: 5px;">Monthly Report</a><a href="{{route('weeklyreport.generate')}}" class="btn btn-primary pull-right" style="margin-left: 5px;">Weekly Report</a> <a href="{{route('dailyreport.generate')}}" class="btn btn-primary pull-right">Daily Report</a> </h3>
+{{--<div class="container">--}}
+	{{--<div class="row">--}}
+		{{--<div class="col-sm-8">--}}
+
+		{{--</div>--}}
+		{{--<div class="col-sm-4 ">--}}
+			{{----}}
+		{{--</div>--}}
+	{{--</div>--}}
+{{--</div>--}}
 
 <div class="panel">
 	<div class="panel-heading">
@@ -82,7 +92,20 @@ Orders
 
 <div class="panel">
 	<div class="panel-heading">
-        <h3 class="panel-title">All Orders</h3>
+        <h3 class="panel-title">All Orders
+			<div class="search_box pull-right">
+				<form action="" class="">
+					<div class="form-group">
+						<div class="col-sm-8">
+							<input type="text" name="keyword" value="{{ request()->keyword }}" placeholder="Keyword" class="form-control">
+						</div>
+						<button type="submit" class="btn btn-primary" style="background:#00AAFF; padding: 7px;">Search</button>
+					</div>
+				</form>
+			</div>
+		</h3>
+
+
     </div>
 	<div class="panel-body">		
 		<table class="table">

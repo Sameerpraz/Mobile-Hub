@@ -24,7 +24,7 @@ Route::get('password/change', 'Admin\DashboardController@passwordchange')->name(
 Route::post('password/change', 'Admin\DashboardController@passwordstore');
 
 Route::group(['prefix' => 'admin', 'middleware' => ['admin'], 'namespace' => 'Admin'], function() {
-    Route::get('/', 'DashboardController@index')->name('admin.dashboard');
+    Route::any('/', 'DashboardController@index')->name('admin.dashboard');
     Route::get('/phpinfo', 'DashboardController@phpinfo');
     Route::resource('pages', 'PageController');
     Route::get('pages/photodelete/{page}', 'PageController@photodelete')->name('pages.photodelete');
@@ -55,7 +55,11 @@ Route::group(['prefix' => 'admin', 'middleware' => ['admin'], 'namespace' => 'Ad
     Route::post('items/order', 'ItemController@order')->name('items.order');
     Route::resource('orders', 'OrderController');
     Route::post('order/{id}/approve', 'OrderController@approve')->name('order.application.approve');
+
     Route::post('order/{id}/decline', 'OrderController@decline')->name('order.application.decline');
+    Route::any('order/monthlyreport', 'OrderController@monthlyreport')->name('monthlyreport.generate');
+    Route::any('order/weeklyreport', 'OrderController@weeklyreport')->name('weeklyreport.generate');
+    Route::any('order/dailyreport', 'OrderController@dailyreport')->name('dailyreport.generate');
 });
 
 
@@ -132,5 +136,7 @@ Route::get('newarrivals','HomeController@newarrival')->name('view.newarrival');
 
 Route::group(['middleware' => ['auth']], function(){
     Route::get('profile', 'UserController@profile')->name('profile');
+    Route::post('order/{id}/paid', 'UserController@paid')->name('order.user.paid');
+    Route::get('orders/{order}','UserController@userordershow')->name('userorder.show');
     Route::post('changepassword', 'UserController@changepassword')->name('changepassword');
 });
