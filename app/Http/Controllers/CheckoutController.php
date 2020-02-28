@@ -71,6 +71,7 @@ class CheckoutController extends Controller
         }
 
         $orderdetails = $request->session()->get('orderdetails');
+        dd($orderdetails);
         $date = date('Y-m-d', strtotime($orderdetails['collection_date']));
         $time = date('H:i:s', strtotime($orderdetails['collection_time']));
         $date_time = $date .' '. $time;
